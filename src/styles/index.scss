@@ -11,6 +11,7 @@
 body {
     font-family: "Roboto";
     width: 100%;
+    padding: 1em;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -42,9 +43,10 @@ hr {
 main {
     display: flex;
     flex-direction: column;
-    padding: 1em 30px;
-    width: 40%;
+    padding: 2.5em 30px;
+    width: 100%;
     min-height: 3em;
+    max-width: 500px;
     border-radius: 15px;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.288);
 
@@ -65,17 +67,37 @@ main {
             align-self: flex-end;
             color: var(--gray);
         }
+
+        @media (width <= 370px) {
+            display: grid;
+            grid-template-columns: 100%;
+            overflow: scroll;
+        }
     }
 
     nav {
+        display: flex;
+        width: 100%;
         align-self: center;
         margin-bottom: 1.5em;
         ul {
+            width: 100%;
+            align-self: center;
+            justify-content: center;
+            max-width: 100%;
+            overflow: scroll;
             display: flex;
             gap: 10px;
             color: var(--gray);
 
+            @media (width <= 400px) {
+                display: grid;
+                grid-template-columns: 50% 50%;
+                overflow: visible;
+            }
+
             li {
+                text-align: center;
                 cursor: pointer;
                 transition: 0.2s;
 
@@ -95,4 +117,9 @@ footer {
     padding: 1em;
     background-color: var(--white);
     width: 100vw;
+}
+
+.selected {
+    color: var(--blue);
+    font-weight: bold;
 }
