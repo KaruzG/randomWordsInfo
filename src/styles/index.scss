@@ -1,0 +1,98 @@
+@use "vars.css";
+@import url('https://fonts.googleapis.com/css2?family=Protest+Riot&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+body {
+    font-family: "Roboto";
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 8vh;
+    background: url(data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20x%3D%220%22%20y%3D%220%22%20width%3D%22160%22%20height%3D%2215%22%20viewBox%3D%220%200%20160%2015%22%20preserveAspectRatio%3D%22xMinYMin%22%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22%23FFFFFF%22%20stroke-opacity%3D%220.3%22%20stroke-miterlimit%3D%2210%22%20d%3D%22M0%200.5c26.7%200%2053.3%2014%2080%2014%2026.7%200%2053.3-14%2080-14M0-4.5c26.7%200%2053.3%2014%2080%2014%2026.7%200%2053.3-14%2080-14M0-9.5c26.7%200%2053.3%2014%2080%2014%2026.7%200%2053.3-14%2080-14M0%205.5c26.7%200%2053.3%2014%2080%2014%2026.7%200%2053.3-14%2080-14M0%2010.5c26.7%200%2053.3%2014%2080%2014%2026.7%200%2053.3-14%2080-14%22%2F%3E%3C%2Fsvg%3E),
+                linear-gradient(to bottom, #fefefe 0, #eeeeee 100%) fixed;
+}
+
+h1 {
+    color: var(--black);
+    font-family: "Protest Riot";
+    background-color: white;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.233);
+    margin-bottom: 1em;
+
+    span {
+        color: var(--blue);
+    }
+}
+
+hr {
+    margin: 10px 0 10px 0;
+    color: var(--gray);
+    opacity: 30%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 1em 30px;
+    width: 40%;
+    min-height: 3em;
+    border-radius: 15px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.288);
+
+    #wordContainer {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        gap: 10px;
+
+        h2 {
+            font-style: italic;
+            color: var(--blue);
+            font-weight: 900;
+            font-size: 30px;
+        }
+
+        span {
+            align-self: flex-end;
+            color: var(--gray);
+        }
+    }
+
+    nav {
+        align-self: center;
+        margin-bottom: 1.5em;
+        ul {
+            display: flex;
+            gap: 10px;
+            color: var(--gray);
+
+            li {
+                cursor: pointer;
+                transition: 0.2s;
+
+
+                &:hover {
+                    transition: 0.2s;
+                    color: var(--blue);
+                }
+            }
+        }
+    }
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    padding: 1em;
+    background-color: var(--white);
+    width: 100vw;
+}
