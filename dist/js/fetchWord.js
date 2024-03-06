@@ -1,7 +1,9 @@
 // Uses https://rapidapi.com/dpventures/api/wordsapi/ API
 export function getNewWord() {
     // API CONFIG:
+    const MAX_API_ATTEMPTS = 2;
     const API_key = "69978fe67bmsh186b9ad76fce78ap1fb63fjsn43a025c00d3f";
+    // 
     const options = {
         method: 'GET',
         headers: {
@@ -14,15 +16,16 @@ export function getNewWord() {
         try {
             let API_Calls = 0;
             while (true) {
-                if (API_Calls >= 10) {
+                if (API_Calls >= MAX_API_ATTEMPTS) {
                     console.log("Too many calls to WordsApi");
                     return false;
                 }
                 const response = await fetch("https://wordsapiv1.p.rapidapi.com/words/?random=true", options);
                 API_Calls++;
-                const result = await response.json();
-                if (checkResponseInfo(result)) {
-                    return result;
+                let result = await response.json();
+                let word = result;
+                if (checkResponseInfo(word)) {
+                    return word;
                 }
             }
         }

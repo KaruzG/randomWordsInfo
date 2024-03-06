@@ -1,5 +1,17 @@
 import { getNewWord } from "./fetchWord.js";
 
+// Pointers to DOM
+const PTR_WORD:HTMLElement = document.getElementById("word")!
+const PTR_PRONUNCIATION:HTMLElement = document.getElementById("pron")!
+const PTR_DEFINITION:HTMLElement = document.getElementById("definition")!
+const PTR_SYNONYMS:HTMLElement = document.getElementById("synonyms")!
+const PTR_ANTONYMS:HTMLElement = document.getElementById("antonyms")!
+const PTR_RHYMES:HTMLElement = document.getElementById("rhymes")!
+
+let visiblePage = PTR_DEFINITION;
+
+
+
 function handleNavSelection() {
     const nav :HTMLElement = document.querySelector("nav")!
     const navElements :NodeListOf<HTMLElement> = nav.querySelectorAll("li")!
@@ -10,6 +22,39 @@ function handleNavSelection() {
 
 
     function navLiSelected(this: HTMLElement, ev:Event) {
+        // Page to show
+        const LI_CLICKED: String = this.innerText!
+
+        visiblePage.classList.add("hidden")
+
+        // Unhide page selected
+        switch (LI_CLICKED) {
+            case "Definition":
+                PTR_DEFINITION.classList.remove("hidden")
+                visiblePage = PTR_DEFINITION;
+                break;
+
+            case "Synonyms":
+                PTR_SYNONYMS.classList.remove("hidden")
+                visiblePage = PTR_SYNONYMS;
+                break;
+
+            case "Antonyms":
+                PTR_ANTONYMS.classList.remove("hidden")
+                visiblePage = PTR_ANTONYMS;
+                break;
+            
+
+            case "Rhymes":
+                PTR_RHYMES.classList.remove("hidden")
+                visiblePage = PTR_RHYMES;
+                break;                
+        
+            default:
+                break;
+        }
+
+
         navElements.forEach(element => {
             element.classList.remove("selected")
         });
@@ -18,13 +63,32 @@ function handleNavSelection() {
     }
 }
 
+async function updateWordInfo() {
+    let wordInfo = await getNewWord()
+    if (wordInfo === false) { return false}
+    
+    PTR_WORD.innerText = wordInfo.word;
 
-function updateWordInfo() {
-    let wordInfo: object | null = getNewWord()
+    if (wordInfo.pronunciation != undefined) {
+        PTR_PRONUNCIATION.innerText = wordInfo.pronunciation.all;
+    }
 
-    if (wordInfo === null) { return false}
+    if (wordInfo.results[0].definition != null) {
+        PTR_DEFINITION.innerText = wordInfo.results[0].definition;
+    }
 
-    console.log(wordInfo)
+    if (wordInfo.results[0].synonyms != null) {
+        PTR_SYNONYMS.innerText = wordInfo.results[0].synonyms[0];
+    }
+
+    if (wordInfo.results[0].antonyms != null) {
+        PTR_ANTONYMS.innerText = wordInfo.results[0].antonyms[0];
+    }
+
+    if (wordInfo.results[0].rhymes != null) {
+        PTR_DEFINITION.innerText = wordInfo.results[0].rhymes[0];
+    }
+    
 }
 
 handleNavSelection()

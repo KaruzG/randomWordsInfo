@@ -116,7 +116,15 @@ footer {
   width: 100vw;
 }
 
+p {
+  text-transform: capitalize;
+}
+
 .selected {
   color: var(--blue);
   font-weight: bold;
+}
+
+.hidden {
+  display: none;
 }/*# sourceMappingURL=index.css.map */
