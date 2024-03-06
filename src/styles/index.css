@@ -83,11 +83,10 @@ main nav {
   margin-bottom: 1.5em;
 }
 main nav ul {
-  width: 100%;
+  width: 99%;
   align-self: center;
   justify-content: center;
   max-width: 100%;
-  overflow: scroll;
   display: flex;
   gap: 10px;
   color: var(--gray);
