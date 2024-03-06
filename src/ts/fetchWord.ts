@@ -1,27 +1,8 @@
 // Uses https://rapidapi.com/dpventures/api/wordsapi/ API
-
-interface Word {
-	word: string;
-	results: Array<Results>;
-	pronunciation?: Pronunciation;
-}
-
-interface Results {
-	definition?: string;
-	synonyms?: Array<string>
-	antonyms?: Array<string>
-	rhymes?: Array<string>
-}
-
-interface Pronunciation {
-	all: string;
-}
-
 export function getNewWord() {
 	// API CONFIG:
-	const MAX_API_ATTEMPTS: number = 2;
-	const API_key: string = "69978fe67bmsh186b9ad76fce78ap1fb63fjsn43a025c00d3f"
-	// 
+	const MAX_API_ATTEMPTS: number = 5;
+	const API_key: string = ""
 
 	const options: object = {
 		method: 'GET',
@@ -29,6 +10,23 @@ export function getNewWord() {
 			'X-RapidAPI-Key': API_key,
 			'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
 		}
+	}
+
+	interface Word {
+		word: string;
+		results: Array<Results>;
+		pronunciation?: Pronunciation;
+	}
+	
+	interface Results {
+		definition?: string;
+		synonyms?: Array<string>
+		antonyms?: Array<string>
+		rhymes?: Array<string>
+	}
+	
+	interface Pronunciation {
+		all: string;
 	}
 
 	// Some responses doesnt have much info of the word, would be better to skip them (checkResponseInfo())

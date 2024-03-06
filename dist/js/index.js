@@ -49,8 +49,6 @@ async function updateWordInfo() {
     if (wordInfo === false) {
         return false;
     }
-    //DEBUG
-    console.log(wordInfo);
     PTR_WORD.innerText = wordInfo.word;
     if (wordInfo.pronunciation != undefined) {
         PTR_PRONUNCIATION.innerText = wordInfo.pronunciation.all;

@@ -116,6 +116,18 @@ footer {
     padding: 1em;
     background-color: var(--white);
     width: 100vw;
+    
+    a {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        color: var(--black);
+        text-decoration: none;
+
+        img {
+            width: 20px;
+        }
+    }   
 }
 
 p {

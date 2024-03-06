@@ -115,6 +115,16 @@ footer {
   background-color: var(--white);
   width: 100vw;
 }
+footer a {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  color: var(--black);
+  text-decoration: none;
+}
+footer a img {
+  width: 20px;
+}
 
 p {
   text-transform: capitalize;
