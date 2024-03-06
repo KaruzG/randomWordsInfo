@@ -1,6 +1,5 @@
 // Uses https://rapidapi.com/dpventures/api/wordsapi/ API
-const API_key: string = "69978fe67bmsh186b9ad76asdjsn43a025c00d3f"
-//const API_key: string = "69978fe67bmsh186b9ad76fce78ap1fb63fjsn43a025c00d3f"
+const API_key: string = ""
 
 const options: object = {
     method: 'GET',

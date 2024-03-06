@@ -1,7 +1,6 @@
 "use strict";
 // Uses https://rapidapi.com/dpventures/api/wordsapi/ API
-const API_key = "69978fe67bmsh186b9ad76asdjsn43a025c00d3f";
-//const API_key: string = "69978fe67bmsh186b9ad76fce78ap1fb63fjsn43a025c00d3f"
+const API_key = "";
 const options = {
     method: 'GET',
     headers: {
