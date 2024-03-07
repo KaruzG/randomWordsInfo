@@ -22,7 +22,6 @@ Just a small webapp to practice with REST APIs and TypeScript.
 ### Prerequisites
 
 - Key of WordsAPI from RapidAPi [link](https://rapidapi.com/dpventures/api/wordsapi/)
-- Specify you key in fetchWord.ts or fetchWord.js
 
 ### Installation Steps
 
@@ -31,8 +30,9 @@ Just a small webapp to practice with REST APIs and TypeScript.
    ```bash
    git clone https://github.com/KaruzG/randomWordsInfo
    ```
+2. Specify you key in fetchWord.ts (and compile) or in fetchWord.js
 
-2. And run it in your web server of preference
+3. And run it in your web server of preference
 
 
 ## Contribution
